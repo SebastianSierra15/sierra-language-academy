@@ -12,16 +12,20 @@ import { messages, testimonials, whatsappUrl } from "../data/site";
   />
 
   <section class="section">
-    <div class="container grid-3">
-      {testimonials.map((testimonial) => (
-        <article class="card reveal">
-          <p style="font-size: 1.15rem; font-style: italic;">"{testimonial.text}"</p>
-          <div style="margin-top: 28px;">
-            <h2 style="font-size: 2rem;">{testimonial.name}</h2>
-            <p class="meta">{testimonial.language}</p>
-          </div>
-        </article>
-      ))}
+    <div class="container">
+      <div class="testimonial-carousel reveal" aria-label="Student testimonials carousel">
+        <div class="testimonial-track">
+          {[...testimonials, ...testimonials].map((testimonial, index) => (
+            <article class="card testimonial-slide" aria-hidden={index >= testimonials.length ? "true" : "false"}>
+              <p>"{testimonial.text}"</p>
+              <div>
+                <h2 style="font-size: 2rem;">{testimonial.name}</h2>
+                <p class="meta">{testimonial.language}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 

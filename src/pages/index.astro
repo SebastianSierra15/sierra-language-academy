@@ -161,16 +161,18 @@ import { exams, languages, messages, methodology, programs, testimonials, whatsa
         <h2>Stories from focused learners.</h2>
         <p class="lead">Testimonials should be reviewed and replaced with confirmed client-approved quotes before final production use.</p>
       </div>
-      <div class="grid-3">
-        {testimonials.map((testimonial) => (
-          <article class="card reveal">
-            <p style="font-size: 1.08rem; font-style: italic;">"{testimonial.text}"</p>
-            <div style="margin-top: 24px;">
-              <h3>{testimonial.name}</h3>
-              <p class="meta">{testimonial.language}</p>
-            </div>
-          </article>
-        ))}
+      <div class="testimonial-carousel reveal" aria-label="Student testimonials carousel">
+        <div class="testimonial-track">
+          {[...testimonials, ...testimonials].map((testimonial, index) => (
+            <article class="card testimonial-slide" aria-hidden={index >= testimonials.length ? "true" : "false"}>
+              <p>"{testimonial.text}"</p>
+              <div>
+                <h3>{testimonial.name}</h3>
+                <p class="meta">{testimonial.language}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   </section>
