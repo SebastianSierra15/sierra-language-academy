@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import PageHero from "../components/PageHero.astro";
+import { messages, phoneDisplay, whatsappUrl } from "../data/site";
+---
+
+<BaseLayout title="Contact | Sierra Language Academy">
+  <PageHero
+    eyebrow="Contact"
+    title="Book, quote, or ask anything through WhatsApp."
+    description="Use WhatsApp for the fastest response, or send your details through the form so Sierra Language Academy can prepare the right recommendation."
+  />
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">Reach Us Directly</p>
+        <h2>One contact channel for every next step.</h2>
+        <p class="lead" style="margin: 20px 0 30px;">
+          Quotes, plan selection, consultation scheduling, and exam preparation questions all start through WhatsApp.
+        </p>
+        <div class="card">
+          <h3>WhatsApp</h3>
+          <p class="price" style="font-size: 2rem; margin: 10px 0 20px;">{phoneDisplay}</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Book Free Consultation</a>
+            <a class="btn btn-secondary" href={whatsappUrl(messages.quote)} target="_blank" rel="noreferrer">Request a Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

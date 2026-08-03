@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { messages, programs, whatsappUrl } from "../data/site";
+---
+
+<BaseLayout title="Programs | Sierra Language Academy">
+  <PageHero
+    eyebrow="Programs"
+    title="Structured plans for real progress."
+    description="Choose a focused trial, a consistent monthly program, or an intensive track for exam preparation, immigration goals, or professional confidence."
+  />
+
+  <section class="section">
+    <div class="container grid-3">
+      {programs.map((program) => (
+        <article class:list={["card", "program-card", program.featured && "featured", "reveal"]}>
+          <div class="program-top">
+            <div>
+              <h2 style="font-size: 2.2rem;">{program.name}</h2>
+              <p class="meta">{program.lessons} - {program.duration}</p>
+            </div>
+            <p class="price">{program.price}</p>
+          </div>
+          <p>{program.description}</p>
+          <ul class="check-list">
+            {program.includes.map((item) => <li>{item}</li>)}
+          </ul>
+          <a class="btn btn-primary" href={whatsappUrl(program.message)} target="_blank" rel="noreferrer">Select This Plan</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">Quotes & Enrollment</p>
+        <h2>Every plan starts with a direct conversation.</h2>
+      </div>
+      <div class="reveal">
+        <p class="lead">
+          Use WhatsApp to confirm schedule, language, level, target date, and the plan that best matches your goal. This keeps enrollment simple and personal.
+        </p>
+        <div class="btn-row" style="margin-top: 28px;">
+          <a class="btn btn-primary" href={whatsappUrl(messages.quote)} target="_blank" rel="noreferrer">Request a Quote</a>
+          <a class="btn btn-secondary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Book Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { faqs, messages, whatsappUrl } from "../data/site";
+---
+
+<BaseLayout title="FAQ | Sierra Language Academy">
+  <PageHero
+    eyebrow="FAQ"
+    title="Common inquiries before getting started."
+    description="Answers about lessons, languages, exam preparation, schedules, quotes, and the best next step."
+    dark
+  />
+
+  <section class="section">
+    <div class="container" style="max-width: 860px;">
+      <div class="faq-list reveal">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section charcoal">
+    <div class="container section-head center reveal">
+      <p class="eyebrow">Still Deciding?</p>
+      <h2>Ask directly on WhatsApp.</h2>
+      <p class="lead">Questions about quotes, plans, schedule, or exam preparation are handled through one direct contact channel.</p>
+      <a class="btn btn-primary" href={whatsappUrl(messages.contact)} target="_blank" rel="noreferrer">Contact Sierra Academy</a>
+    </div>
+  </section>
+</BaseLayout>

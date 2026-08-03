@@ -1,0 +1,93 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Sierra Language Academy | Premium Online Language Coaching",
+  description = "Personalized online lessons in English, French, Spanish, Italian, and Portuguese, plus CELPIP, IELTS, TEF, and TCF exam preparation."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#131313" />
+    <link rel="icon" type="image/png" href="/assets/sierra-logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/assets/promo.jpeg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      const menuButton = document.querySelector(".menu-toggle");
+      const menu = document.querySelector("#site-menu");
+
+      menuButton?.addEventListener("click", () => {
+        const isOpen = menu?.classList.toggle("open") ?? false;
+        document.body.classList.toggle("menu-open", isOpen);
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      menu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.remove("open");
+          document.body.classList.remove("menu-open");
+          menuButton?.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      const revealItems = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealItems.forEach((item) => observer.observe(item));
+
+      document.querySelectorAll("[data-lead-form]").forEach((form) => {
+        form.addEventListener("submit", (event) => {
+          const currentForm = event.currentTarget;
+          if (!(currentForm instanceof HTMLFormElement)) return;
+          if (currentForm.dataset.hasKey === "true") return;
+
+          event.preventDefault();
+          const data = new FormData(currentForm);
+          const message = [
+            "Hello Sierra Language Academy, I would like to share my details for a quote or consultation.",
+            "",
+            `Name: ${data.get("name") || ""}`,
+            `Email: ${data.get("email") || ""}`,
+            `WhatsApp: ${data.get("phone") || ""}`,
+            `Interest: ${data.get("interest") || ""}`,
+            `Message: ${data.get("message") || ""}`
+          ].join("\n");
+
+          window.location.href = `https://wa.me/14036803870?text=${encodeURIComponent(message)}`;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { exams, messages, whatsappUrl } from "../data/site";
+---
+
+<BaseLayout title="Exam Preparation | Sierra Language Academy">
+  <PageHero
+    eyebrow="Exam Preparation"
+    title="CELPIP, IELTS, TEF, and TCF preparation."
+    description="Specialized preparation for immigration, academic, and professional goals through structured practice, feedback, and exam strategy."
+  />
+
+  <section class="section">
+    <div class="container grid-4">
+      {exams.map((exam) => (
+        <article class="card reveal">
+          <span class="card-icon">{exam.code}</span>
+          <h2 style="font-size: 2.2rem;">{exam.code}</h2>
+          <h3 style="margin: 10px 0 16px;">{exam.name}</h3>
+          <p>{exam.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">Preparation Flow</p>
+        <h2>Practice under conditions that make the real exam feel familiar.</h2>
+      </div>
+      <div class="reveal">
+        <ul class="check-list">
+          <li>Diagnostic assessment to identify level and weak points.</li>
+          <li>Timed exercises for listening, reading, writing, and speaking.</li>
+          <li>Mock interviews and correction focused on scoring criteria.</li>
+          <li>Personalized homework and strategy between sessions.</li>
+        </ul>
+        <div class="btn-row" style="margin-top: 30px;">
+          <a class="btn btn-primary" href={whatsappUrl(messages.exams)} target="_blank" rel="noreferrer">Ask About Exam Prep</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

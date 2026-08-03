@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { languages, messages, whatsappUrl } from "../data/site";
+---
+
+<BaseLayout title="Languages | Sierra Language Academy">
+  <PageHero
+    eyebrow="Languages"
+    title="Five languages. One personal method."
+    description="Learn English, French, Spanish, Italian, or Portuguese with lessons tailored to your goals, level, and schedule."
+    dark
+  />
+
+  <section class="section">
+    <div class="container grid-3">
+      {languages.map((language) => (
+        <article class="card reveal">
+          <span class="card-icon">{language.name.slice(0, 2).toUpperCase()}</span>
+          <p class="eyebrow">{language.tag}</p>
+          <h2 style="font-size: 2.4rem;">{language.name}</h2>
+          <p style="margin: 18px 0;">{language.description}</p>
+          <div class="badge-list">
+            {language.levels.map((level) => <span class="badge">{level}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section charcoal">
+    <div class="container section-head center reveal">
+      <p class="eyebrow">Language Goal</p>
+      <h2>Ask which language path fits your timeline.</h2>
+      <p class="lead">Share your goal through WhatsApp and receive a recommended next step for classes, schedule, and plan selection.</p>
+      <a class="btn btn-primary" href={whatsappUrl(messages.quote)} target="_blank" rel="noreferrer">Request Language Guidance</a>
+    </div>
+  </section>
+</BaseLayout>

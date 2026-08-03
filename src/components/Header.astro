@@ -1,0 +1,33 @@
+---
+import { messages, navLinks, whatsappUrl } from "../data/site";
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="/" aria-label="Sierra Language Academy home">
+      <img src="/assets/sierra-logo.png" alt="Sierra Language Academy logo" />
+      <span class="brand-text">
+        <span class="brand-name">Sierra</span>
+        <span class="brand-sub">Language Academy</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="site-menu" aria-label="Primary navigation">
+      {navLinks.map((link) => (
+        <a class={currentPath === link.href ? "active" : ""} href={link.href}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a class="btn btn-dark nav-cta" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">
+      Book Free Consultation
+    </a>
+
+    <button class="menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false">
+      Menu
+    </button>
+  </div>
+</header>

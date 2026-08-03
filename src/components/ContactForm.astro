@@ -1,0 +1,67 @@
+---
+import { leadEmail, messages, whatsappUrl } from "../data/site";
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "";
+---
+
+<form
+  class="form"
+  method="POST"
+  action="https://api.web3forms.com/submit"
+  data-lead-form
+  data-has-key={accessKey ? "true" : "false"}
+  data-whatsapp={whatsappUrl(messages.quote)}
+>
+  <input type="hidden" name="access_key" value={accessKey} />
+  <input type="hidden" name="subject" value="New Sierra Language Academy lead" />
+  <input type="hidden" name="from_name" value="Sierra Language Academy Website" />
+  <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display: none;" />
+
+  <div>
+    <p class="eyebrow">Contact Form</p>
+    <h3>Send your details</h3>
+    <p class="form-note" style="margin-top: 12px;">
+      Leads are prepared for delivery to {leadEmail}. If the form key is not configured yet, this form will continue through WhatsApp.
+    </p>
+  </div>
+
+  <div class="form-row">
+    <label class="field">
+      <span>Name</span>
+      <input name="name" type="text" autocomplete="name" required />
+    </label>
+    <label class="field">
+      <span>Email</span>
+      <input name="email" type="email" autocomplete="email" required />
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label class="field">
+      <span>WhatsApp</span>
+      <input name="phone" type="tel" autocomplete="tel" required />
+    </label>
+    <label class="field">
+      <span>Interest</span>
+      <select name="interest" required>
+        <option value="">Select one</option>
+        <option>Free consultation</option>
+        <option>Weekly Trial</option>
+        <option>Standard Program</option>
+        <option>Intensive Program</option>
+        <option>Exam preparation</option>
+        <option>General quote</option>
+      </select>
+    </label>
+  </div>
+
+  <label class="field">
+    <span>Message</span>
+    <textarea name="message" required placeholder="Tell us your language goal, current level, and preferred schedule."></textarea>
+  </label>
+
+  <button class="btn btn-primary" type="submit">Send Details</button>
+  <p class="form-note">
+    Prefer a faster response? Use WhatsApp for quotes, plan selection, and consultation scheduling.
+  </p>
+</form>

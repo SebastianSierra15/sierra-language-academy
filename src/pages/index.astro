@@ -1,0 +1,189 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { exams, languages, messages, methodology, programs, testimonials, whatsappUrl } from "../data/site";
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <div>
+          <p class="eyebrow">A multilingual academy by Cristian Sierra</p>
+          <h1>Learn Languages. <span>Unlock Opportunities.</span></h1>
+        </div>
+        <p class="lead">
+          Personalized online language lessons for immigrants, professionals, and students. Private and small-group coaching in English, French, Spanish, Italian, and Portuguese.
+        </p>
+        <div class="badge-list">
+          <span class="badge">CELPIP</span>
+          <span class="badge">IELTS</span>
+          <span class="badge">TEF</span>
+          <span class="badge">TCF</span>
+          <span class="badge">Online</span>
+          <span class="badge">Private & Group</span>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Book Free Consultation</a>
+          <a class="btn btn-secondary" href="/programs">Explore Programs</a>
+        </div>
+      </div>
+
+      <div class="hero-card reveal">
+        <div class="hero-image">
+          <img src="/assets/promo.jpeg" alt="Sierra Language Academy online language learning promotion" />
+        </div>
+        <div class="stat-card">
+          <strong>5 languages</strong>
+          <p>English, French, Spanish, Italian, and Portuguese taught with a structured boutique approach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container band-inner">
+      <span class="band-label">Languages Offered</span>
+      <div class="badge-list">
+        {languages.map((language) => <span class="badge">{language.name}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">The Boutique Experience</p>
+        <h2>Premium coaching with a human rhythm.</h2>
+        <p class="lead">
+          Sierra Language Academy combines personalized planning, conversation-first practice, and academic precision so students can communicate with confidence.
+        </p>
+      </div>
+      <div class="grid-3">
+        <article class="card reveal">
+          <span class="card-icon">01</span>
+          <h3>Personalized Lessons</h3>
+          <p>Every learning path is tailored to your goals, level, timeline, and preferred pace.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-icon">02</span>
+          <h3>Private & Group Classes</h3>
+          <p>Flexible formats for focused one-on-one attention or small-group speaking practice.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-icon">03</span>
+          <h3>Exam Preparation</h3>
+          <p>Structured coaching for CELPIP, IELTS, TEF, and TCF with strategy, practice, and feedback.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section charcoal">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Programs</p>
+        <h2>Choose your path to progress.</h2>
+        <p class="lead">Start with a trial, build consistency through a standard program, or move faster with an intensive track.</p>
+      </div>
+      <div class="grid-3">
+        {programs.map((program) => (
+          <article class:list={["card", "program-card", program.featured && "featured", "reveal"]}>
+            <div class="program-top">
+              <div>
+                <h3>{program.name}</h3>
+                <p class="meta">{program.lessons} - {program.duration}</p>
+              </div>
+              <p class="price">{program.price}</p>
+            </div>
+            <p>{program.description}</p>
+            <ul class="check-list">
+              {program.includes.map((item) => <li>{item}</li>)}
+            </ul>
+            <a class="btn btn-primary" href={whatsappUrl(program.message)} target="_blank" rel="noreferrer">Ask About This Plan</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="portrait-panel reveal">
+        <img src="/assets/promo.jpeg" alt="Online language learning environment with Sierra Language Academy branding" />
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Methodology</p>
+        <h2>Where language becomes a bridge, not a barrier.</h2>
+        <p class="lead" style="margin: 20px 0 34px;">
+          The process is structured enough to produce progress and personal enough to adapt to the reason you are learning.
+        </p>
+        <div class="method-list">
+          {methodology.slice(0, 3).map((item) => (
+            <article class="method-item">
+              <span class="method-step">{item.step}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">Exam Tracks</p>
+        <h2>Prepare with purpose.</h2>
+        <p class="lead">Practice the modules, understand the scoring logic, and build confidence before test day.</p>
+      </div>
+      <div class="grid-4">
+        {exams.map((exam) => (
+          <article class="card reveal">
+            <span class="card-icon">{exam.code}</span>
+            <h3>{exam.name}</h3>
+            <p>{exam.description}</p>
+          </article>
+        ))}
+      </div>
+      <div class="btn-row" style="justify-content: center; margin-top: 38px;">
+        <a class="btn btn-primary" href={whatsappUrl(messages.exams)} target="_blank" rel="noreferrer">Ask About Exam Prep</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow">Student Voices</p>
+        <h2>Stories from focused learners.</h2>
+        <p class="lead">Testimonials should be reviewed and replaced with confirmed client-approved quotes before final production use.</p>
+      </div>
+      <div class="grid-3">
+        {testimonials.map((testimonial) => (
+          <article class="card reveal">
+            <p style="font-size: 1.08rem; font-style: italic;">"{testimonial.text}"</p>
+            <div style="margin-top: 24px;">
+              <h3>{testimonial.name}</h3>
+              <p class="meta">{testimonial.language}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container section-head center reveal">
+      <p class="eyebrow">Start Today</p>
+      <h2>Begin your linguistic journey with a free consultation.</h2>
+      <p class="lead">Tell us your goal, timeline, and preferred schedule. Sierra Language Academy will recommend the right next step through WhatsApp.</p>
+      <div class="btn-row" style="justify-content: center;">
+        <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Book Free Consultation</a>
+        <a class="btn btn-secondary" href="/contact">Send Your Details</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { messages, methodology, whatsappUrl } from "../data/site";
+---
+
+<BaseLayout title="Methodology | Sierra Language Academy">
+  <PageHero
+    eyebrow="Methodology"
+    title="Academic structure, practical conversation."
+    description="A clear learning process that turns goals into lessons, lessons into practice, and practice into confident communication."
+    dark
+  />
+
+  <section class="section">
+    <div class="container split">
+      <div class="portrait-panel reveal">
+        <img src="/assets/promo.jpeg" alt="Sierra Language Academy study desk and online learning setup" />
+      </div>
+      <div class="method-list">
+        {methodology.map((item) => (
+          <article class="method-item reveal">
+            <span class="method-step">{item.step}</span>
+            <div>
+              <h2 style="font-size: 2rem;">{item.title}</h2>
+              <p>{item.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section charcoal">
+    <div class="container section-head center reveal">
+      <p class="eyebrow">Next Step</p>
+      <h2>Start with a level and goal conversation.</h2>
+      <p class="lead">A short consultation helps define your best language track, schedule, and plan.</p>
+      <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Book Free Consultation</a>
+    </div>
+  </section>
+</BaseLayout>

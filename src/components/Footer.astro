@@ -1,0 +1,46 @@
+---
+import { messages, navLinks, phoneDisplay, whatsappUrl } from "../data/site";
+---
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="/" aria-label="Sierra Language Academy home">
+        <img src="/assets/sierra-logo.png" alt="Sierra Language Academy logo" />
+        <span class="brand-text">
+          <span class="brand-name">Sierra</span>
+          <span class="brand-sub">Language Academy</span>
+        </span>
+      </a>
+      <p style="margin-top: 18px; max-width: 320px;">
+        Learn Languages. Unlock Opportunities. A boutique multilingual online academy based in Victoria, British Columbia.
+      </p>
+    </div>
+
+    <div>
+      <h4>Academy</h4>
+      <ul>
+        {navLinks.slice(0, 4).map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+      </ul>
+    </div>
+
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        {navLinks.slice(4).map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+      </ul>
+    </div>
+
+    <div>
+      <h4>Direct Contact</h4>
+      <ul>
+        <li><a href={whatsappUrl(messages.contact)} target="_blank" rel="noreferrer">WhatsApp {phoneDisplay}</a></li>
+        <li><a href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Book a free consultation</a></li>
+        <li><a href={whatsappUrl(messages.quote)} target="_blank" rel="noreferrer">Request a quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Copyright 2026 Sierra Language Academy. All rights reserved.</p>
+  </div>
+</footer>
