@@ -33,6 +33,13 @@ export const navLinks = [
   { label: "Contact", href: "/contact" }
 ];
 
+export const headerLinks = [
+  { label: "Programs", href: "/programs" },
+  { label: "Exams", href: "/exams" },
+  { label: "Methodology", href: "/methodology" },
+  { label: "Testimonials", href: "/testimonials" }
+];
+
 export const languages = [
   {
     name: "English",
@@ -188,6 +195,18 @@ export const testimonials = [
     language: "Spanish",
     text:
       "Each class felt personal, elegant, and useful. The lessons connected grammar, culture, and real conversation in a natural way."
+  },
+  {
+    name: "Ahmed K.",
+    language: "French - TEF",
+    text:
+      "The exam practice helped me understand what to expect and where to focus. I felt more organized, calmer, and better prepared."
+  },
+  {
+    name: "Elena V.",
+    language: "Italian",
+    text:
+      "The lessons made Italian feel approachable. I improved my pronunciation, learned useful expressions, and gained confidence for travel."
   }
 ];
 
