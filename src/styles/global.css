@@ -59,6 +59,14 @@ textarea {
   font: inherit;
 }
 
+button,
+.btn,
+.menu-toggle,
+summary,
+a[href] {
+  cursor: pointer;
+}
+
 .container {
   width: min(100% - 40px, var(--max));
   margin-inline: auto;
@@ -626,7 +634,6 @@ details {
 
 summary {
   display: flex;
-  cursor: pointer;
   list-style: none;
   align-items: center;
   justify-content: space-between;
@@ -816,12 +823,8 @@ details p {
   display: flex;
   width: max-content;
   gap: 24px;
-  animation: testimonial-scroll 34s linear infinite;
+  animation: testimonial-scroll 18s linear infinite;
   will-change: transform;
-}
-
-.testimonial-carousel:hover .testimonial-track {
-  animation-play-state: paused;
 }
 
 .testimonial-slide {
@@ -883,8 +886,7 @@ details p {
 
   .reveal,
   .btn,
-  .card,
-  .testimonial-track {
+  .card {
     animation: none;
     transition: none;
   }
