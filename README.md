@@ -11,6 +11,14 @@ Static multipage landing site for Sierra Language Academy, built with Astro.
 
 ## Local Development
 
+From the parent workspace folder, enter the repository first:
+
+```bash
+cd sierra-language-academy
+```
+
+Then install and run the site:
+
 ```bash
 npm install
 npm run dev
