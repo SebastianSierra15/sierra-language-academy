@@ -2,9 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import { exams, messages, whatsappUrl } from "../data/site";
+import { pageSeo } from "../data/seo";
 ---
 
-<BaseLayout title="Exam Preparation | Sierra Language Academy">
+<BaseLayout {...pageSeo.exams}>
   <PageHero
     eyebrow="Exam Preparation"
     title="CELPIP, IELTS, TEF, and TCF preparation."
@@ -38,7 +39,7 @@ import { exams, messages, whatsappUrl } from "../data/site";
           <li>Personalized homework and strategy between sessions.</li>
         </ul>
         <div class="btn-row" style="margin-top: 30px;">
-          <a class="btn btn-primary" href={whatsappUrl(messages.exams)} target="_blank" rel="noreferrer">Ask About Exam Prep</a>
+          <a class="btn btn-primary" href={whatsappUrl(messages.exams)} target="_blank" rel="noreferrer" title="Ask about exam preparation on WhatsApp">Ask About Exam Prep</a>
         </div>
       </div>
     </div>

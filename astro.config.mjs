@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://sierra-language-academy.pages.dev",
+  site: process.env.PUBLIC_SITE_URL ?? "https://sierra-language-academy.pages.dev",
   output: "static"
 });

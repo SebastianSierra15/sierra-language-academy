@@ -50,6 +50,25 @@ Treat the architecture as a static-site version of Clean Architecture:
 - Keep animations simple and non-blocking. Content must be visible even if JavaScript fails or animations do not run.
 - Maintain responsive behavior for mobile and desktop before considering work complete.
 
+## SEO Rules
+
+SEO is mandatory for every public page.
+
+- Keep page SEO data in `src/data/seo.ts`; do not scatter titles, descriptions, keywords, canonical paths, or Open Graph image paths across pages.
+- Every public page must pass a full SEO object to `BaseLayout`.
+- Page titles must stay between 30 and 65 characters.
+- Meta descriptions must stay between 120 and 300 characters.
+- Every public page must have one visible `h1` and a logical heading hierarchy.
+- Every public page must define keywords, canonical URL, Open Graph metadata, Twitter metadata, and robots meta.
+- Every page must have its own Open Graph image URL. Reusing the same base asset is acceptable only when each route still exposes a distinct OG URL and alt text.
+- Keep `robots.txt` and `sitemap.xml` generated from `src/data/seo.ts`; do not maintain route lists manually in multiple places.
+- All meaningful images must include descriptive `alt` and `title`.
+- Every link must include a descriptive `title`.
+- Use JSON-LD structured data when it accurately represents visible business/page content.
+- Keep structured data truthful: do not add fake reviews, fake ratings, unsupported pass rates, or guarantees.
+- Use `PUBLIC_SITE_URL` for the final production domain before deployment so canonical URLs, sitemap, robots, Open Graph, and structured data point to the real site.
+- After SEO changes, run `npm run build` and inspect generated `dist/robots.txt`, `dist/sitemap.xml`, and at least one generated HTML file.
+
 ## Comments
 
 Write comments in Spanish only where they are explicitly useful to explain a non-obvious decision, tradeoff, or browser behavior.

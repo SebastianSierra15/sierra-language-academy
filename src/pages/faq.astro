@@ -2,9 +2,22 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import { faqs, messages, whatsappUrl } from "../data/site";
+import { pageSeo } from "../data/seo";
+
+const faqStructuredData = {
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer
+    }
+  }))
+};
 ---
 
-<BaseLayout title="FAQ | Sierra Language Academy">
+<BaseLayout {...pageSeo.faq} structuredData={[faqStructuredData]}>
   <PageHero
     eyebrow="FAQ"
     title="Common inquiries before getting started."
@@ -30,7 +43,7 @@ import { faqs, messages, whatsappUrl } from "../data/site";
       <p class="eyebrow">Still Deciding?</p>
       <h2>Ask directly on WhatsApp.</h2>
       <p class="lead">Questions about quotes, plans, schedule, or exam preparation are handled through one direct contact channel.</p>
-      <a class="btn btn-primary" href={whatsappUrl(messages.contact)} target="_blank" rel="noreferrer">Contact Sierra Academy</a>
+      <a class="btn btn-primary" href={whatsappUrl(messages.contact)} target="_blank" rel="noreferrer" title="Contact Sierra Language Academy on WhatsApp">Contact Sierra Academy</a>
     </div>
   </section>
 </BaseLayout>

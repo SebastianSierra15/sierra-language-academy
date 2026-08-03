@@ -2,9 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import { languages, messages, whatsappUrl } from "../data/site";
+import { pageSeo } from "../data/seo";
 ---
 
-<BaseLayout title="Languages | Sierra Language Academy">
+<BaseLayout {...pageSeo.languages}>
   <PageHero
     eyebrow="Languages"
     title="Five languages. One personal method."
@@ -33,7 +34,7 @@ import { languages, messages, whatsappUrl } from "../data/site";
       <p class="eyebrow">Language Goal</p>
       <h2>Ask which language path fits your timeline.</h2>
       <p class="lead">Share your goal through WhatsApp and receive a recommended next step for classes, schedule, and plan selection.</p>
-      <a class="btn btn-primary" href={whatsappUrl(messages.quote)} target="_blank" rel="noreferrer">Request Language Guidance</a>
+      <a class="btn btn-primary" href={whatsappUrl(messages.quote)} target="_blank" rel="noreferrer" title="Request language guidance on WhatsApp">Request Language Guidance</a>
     </div>
   </section>
 </BaseLayout>

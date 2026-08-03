@@ -3,9 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
 import PageHero from "../components/PageHero.astro";
 import { messages, phoneDisplay, whatsappUrl } from "../data/site";
+import { pageSeo } from "../data/seo";
 ---
 
-<BaseLayout title="Contact | Sierra Language Academy">
+<BaseLayout {...pageSeo.contact}>
   <PageHero
     eyebrow="Contact"
     title="Book, quote, or ask anything through WhatsApp."
@@ -24,8 +25,8 @@ import { messages, phoneDisplay, whatsappUrl } from "../data/site";
           <h3>WhatsApp</h3>
           <p class="price" style="font-size: 2rem; margin: 10px 0 20px;">{phoneDisplay}</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Book Free Consultation</a>
-            <a class="btn btn-secondary" href={whatsappUrl(messages.quote)} target="_blank" rel="noreferrer">Request a Quote</a>
+            <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer" title="Book a free consultation on WhatsApp">Book Free Consultation</a>
+            <a class="btn btn-secondary" href={whatsappUrl(messages.quote)} target="_blank" rel="noreferrer" title="Request a quote on WhatsApp">Request a Quote</a>
           </div>
         </div>
       </div>

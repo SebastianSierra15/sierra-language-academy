@@ -2,9 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import { messages, testimonials, whatsappUrl } from "../data/site";
+import { pageSeo } from "../data/seo";
 ---
 
-<BaseLayout title="Testimonials | Sierra Language Academy">
+<BaseLayout {...pageSeo.testimonials}>
   <PageHero
     eyebrow="Testimonials"
     title="Focused learners, practical outcomes."
@@ -33,7 +34,7 @@ import { messages, testimonials, whatsappUrl } from "../data/site";
     <div class="container section-head center reveal">
       <p class="eyebrow">Your Story</p>
       <h2>Build confidence in the language that matters to your next opportunity.</h2>
-      <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Start With a Consultation</a>
+      <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer" title="Start with a free consultation on WhatsApp">Start With a Consultation</a>
     </div>
   </section>
 </BaseLayout>

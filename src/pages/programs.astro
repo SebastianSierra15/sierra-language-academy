@@ -2,9 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import { messages, programs, whatsappUrl } from "../data/site";
+import { pageSeo } from "../data/seo";
 ---
 
-<BaseLayout title="Programs | Sierra Language Academy">
+<BaseLayout {...pageSeo.programs}>
   <PageHero
     eyebrow="Programs"
     title="Structured plans for real progress."
@@ -26,7 +27,7 @@ import { messages, programs, whatsappUrl } from "../data/site";
           <ul class="check-list">
             {program.includes.map((item) => <li>{item}</li>)}
           </ul>
-          <a class="btn btn-primary" href={whatsappUrl(program.message)} target="_blank" rel="noreferrer">Select This Plan</a>
+          <a class="btn btn-primary" href={whatsappUrl(program.message)} target="_blank" rel="noreferrer" title={`Select the ${program.name} on WhatsApp`}>Select This Plan</a>
         </article>
       ))}
     </div>
@@ -43,8 +44,8 @@ import { messages, programs, whatsappUrl } from "../data/site";
           Use WhatsApp to confirm schedule, language, level, target date, and the plan that best matches your goal. This keeps enrollment simple and personal.
         </p>
         <div class="btn-row" style="margin-top: 28px;">
-          <a class="btn btn-primary" href={whatsappUrl(messages.quote)} target="_blank" rel="noreferrer">Request a Quote</a>
-          <a class="btn btn-secondary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Book Free Consultation</a>
+          <a class="btn btn-primary" href={whatsappUrl(messages.quote)} target="_blank" rel="noreferrer" title="Request a language program quote on WhatsApp">Request a Quote</a>
+          <a class="btn btn-secondary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer" title="Book a free consultation on WhatsApp">Book Free Consultation</a>
         </div>
       </div>
     </div>

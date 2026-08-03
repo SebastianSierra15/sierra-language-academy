@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { exams, languages, messages, methodology, programs, testimonials, whatsappUrl } from "../data/site";
+import { pageSeo } from "../data/seo";
 ---
 
-<BaseLayout>
+<BaseLayout {...pageSeo.home}>
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy reveal">
@@ -23,14 +24,18 @@ import { exams, languages, messages, methodology, programs, testimonials, whatsa
           <span class="badge">Private & Group</span>
         </div>
         <div class="btn-row">
-          <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Book Free Consultation</a>
-          <a class="btn btn-secondary" href="/programs">Explore Programs</a>
+          <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer" title="Book a free language consultation on WhatsApp">Book Free Consultation</a>
+          <a class="btn btn-secondary" href="/programs" title="Explore Sierra Language Academy programs">Explore Programs</a>
         </div>
       </div>
 
       <div class="hero-card reveal">
         <div class="hero-image">
-          <img src="/assets/promo.jpeg" alt="Sierra Language Academy online language learning promotion" />
+          <img
+            src="/assets/promo.jpeg"
+            alt="Sierra Language Academy online language learning promotion"
+            title="Sierra Language Academy online language learning promotion"
+          />
         </div>
         <div class="stat-card">
           <strong>5 languages</strong>
@@ -99,7 +104,7 @@ import { exams, languages, messages, methodology, programs, testimonials, whatsa
             <ul class="check-list">
               {program.includes.map((item) => <li>{item}</li>)}
             </ul>
-            <a class="btn btn-primary" href={whatsappUrl(program.message)} target="_blank" rel="noreferrer">Ask About This Plan</a>
+            <a class="btn btn-primary" href={whatsappUrl(program.message)} target="_blank" rel="noreferrer" title={`Ask about the ${program.name} on WhatsApp`}>Ask About This Plan</a>
           </article>
         ))}
       </div>
@@ -109,7 +114,11 @@ import { exams, languages, messages, methodology, programs, testimonials, whatsa
   <section class="section">
     <div class="container split">
       <div class="portrait-panel reveal">
-        <img src="/assets/promo.jpeg" alt="Online language learning environment with Sierra Language Academy branding" />
+        <img
+          src="/assets/promo.jpeg"
+          alt="Online language learning environment with Sierra Language Academy branding"
+          title="Online language learning environment with Sierra Language Academy branding"
+        />
       </div>
       <div class="reveal">
         <p class="eyebrow">Methodology</p>
@@ -149,7 +158,7 @@ import { exams, languages, messages, methodology, programs, testimonials, whatsa
         ))}
       </div>
       <div class="btn-row" style="justify-content: center; margin-top: 38px;">
-        <a class="btn btn-primary" href={whatsappUrl(messages.exams)} target="_blank" rel="noreferrer">Ask About Exam Prep</a>
+        <a class="btn btn-primary" href={whatsappUrl(messages.exams)} target="_blank" rel="noreferrer" title="Ask about CELPIP IELTS TEF and TCF preparation on WhatsApp">Ask About Exam Prep</a>
       </div>
     </div>
   </section>
@@ -183,8 +192,8 @@ import { exams, languages, messages, methodology, programs, testimonials, whatsa
       <h2>Begin your linguistic journey with a free consultation.</h2>
       <p class="lead">Tell us your goal, timeline, and preferred schedule. Sierra Language Academy will recommend the right next step through WhatsApp.</p>
       <div class="btn-row" style="justify-content: center;">
-        <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer">Book Free Consultation</a>
-        <a class="btn btn-secondary" href="/contact">Send Your Details</a>
+        <a class="btn btn-primary" href={whatsappUrl(messages.consultation)} target="_blank" rel="noreferrer" title="Book a free consultation on WhatsApp">Book Free Consultation</a>
+        <a class="btn btn-secondary" href="/contact" title="Send your contact details to Sierra Language Academy">Send Your Details</a>
       </div>
     </div>
   </section>

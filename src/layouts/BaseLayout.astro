@@ -1,17 +1,134 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { phoneDisplay, programs } from "../data/site";
+import { defaultOgImage, defaultOgImageAlt, pageSeo, siteName, type PageSeo } from "../data/seo";
 import "../styles/global.css";
 
-interface Props {
-  title?: string;
-  description?: string;
+interface Props extends Partial<PageSeo> {
+  structuredData?: Record<string, unknown>[];
+  noindex?: boolean;
 }
 
 const {
-  title = "Sierra Language Academy | Premium Online Language Coaching",
-  description = "Personalized online lessons in English, French, Spanish, Italian, and Portuguese, plus CELPIP, IELTS, TEF, and TCF exam preparation."
+  title = pageSeo.home.title,
+  description = pageSeo.home.description,
+  keywords = pageSeo.home.keywords,
+  path = pageSeo.home.path,
+  breadcrumbLabel = pageSeo.home.breadcrumbLabel,
+  ogImage = defaultOgImage,
+  ogImageAlt = defaultOgImageAlt,
+  structuredData = [],
+  noindex = false
 } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL("https://sierra-language-academy.pages.dev");
+const canonicalUrl = new URL(path, siteUrl).toString();
+const absoluteOgImage = new URL(ogImage, siteUrl).toString();
+const logoUrl = new URL("/assets/sierra-logo.png", siteUrl).toString();
+const robotsContent = noindex
+  ? "noindex, nofollow"
+  : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1";
+const schemaGraph = [
+  {
+    "@type": "EducationalOrganization",
+    "@id": `${siteUrl}#organization`,
+    name: siteName,
+    url: siteUrl.toString(),
+    logo: logoUrl,
+    image: absoluteOgImage,
+    telephone: phoneDisplay,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Victoria",
+      addressRegion: "British Columbia",
+      addressCountry: "CA"
+    },
+    areaServed: ["Canada", "United States", "Online"],
+    knowsAbout: [
+      "English lessons",
+      "French lessons",
+      "Spanish lessons",
+      "Italian lessons",
+      "Portuguese lessons",
+      "CELPIP preparation",
+      "IELTS preparation",
+      "TEF preparation",
+      "TCF preparation"
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Online language coaching programs",
+      itemListElement: programs.map((program) => ({
+        "@type": "Offer",
+        name: program.name,
+        price: program.price.replace(/[^\d]/g, ""),
+        priceCurrency: "CAD",
+        category: "Online language education",
+        description: program.description,
+        availability: "https://schema.org/InStock",
+        url: new URL("/programs", siteUrl).toString()
+      }))
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: phoneDisplay,
+      contactType: "customer service",
+      availableLanguage: ["English", "French", "Spanish", "Italian", "Portuguese"]
+    }
+  },
+  {
+    "@type": "WebSite",
+    "@id": `${siteUrl}#website`,
+    name: siteName,
+    url: siteUrl.toString(),
+    publisher: { "@id": `${siteUrl}#organization` },
+    inLanguage: "en-CA"
+  },
+  {
+    "@type": "WebPage",
+    "@id": `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: title,
+    description,
+    isPartOf: { "@id": `${siteUrl}#website` },
+    about: { "@id": `${siteUrl}#organization` },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: absoluteOgImage,
+      caption: ogImageAlt
+    },
+    inLanguage: "en-CA"
+  },
+  {
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: new URL("/", siteUrl).toString()
+      },
+      ...(path === "/"
+        ? []
+        : [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: breadcrumbLabel,
+              item: canonicalUrl
+            }
+          ])
+    ]
+  },
+  ...structuredData
+];
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": schemaGraph
+});
 ---
 
 <!doctype html>
@@ -20,13 +137,29 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(", ")} />
+    <meta name="robots" content={robotsContent} />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="theme-color" content="#131313" />
     <link rel="icon" type="image/png" href="/assets/sierra-logo.png" />
+    <link rel="apple-touch-icon" href="/assets/sierra-logo.png" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/assets/promo.jpeg" />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={jsonLd} />
   </head>
   <body>
     <Header />
