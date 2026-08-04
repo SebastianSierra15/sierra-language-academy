@@ -1,7 +1,7 @@
 import { seoRoutes } from "../data/seo";
 
 export function GET({ site }: { site?: URL }) {
-  const siteUrl = site?.toString() ?? "https://sierra-language-academy.pages.dev/";
+  const siteUrl = site?.toString() ?? "https://sierra-language-academy.sierralanguageacademy2026.workers.dev/";
   const now = new Date().toISOString();
   const urls = seoRoutes
     .map((route) => {

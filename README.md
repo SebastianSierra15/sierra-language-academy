@@ -36,7 +36,7 @@ The form is wired for Web3Forms through:
 
 ```bash
 PUBLIC_WEB3FORMS_ACCESS_KEY=
-PUBLIC_SITE_URL=https://sierra-language-academy.pages.dev
+PUBLIC_SITE_URL=https://sierra-language-academy.sierralanguageacademy2026.workers.dev
 ```
 
 When the key is not configured, the form falls back to a prepared WhatsApp message.

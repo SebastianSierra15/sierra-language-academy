@@ -1,5 +1,5 @@
 export const siteName = "Sierra Language Academy";
-export const defaultSiteUrl = "https://sierra-language-academy.pages.dev";
+export const defaultSiteUrl = "https://sierra-language-academy.sierralanguageacademy2026.workers.dev";
 export const defaultOgImage = "/assets/promo.jpeg";
 export const defaultOgImageAlt =
   "Sierra Language Academy online multilingual coaching and exam preparation";

@@ -22,7 +22,7 @@ const {
   noindex = false
 } = Astro.props;
 
-const siteUrl = Astro.site ?? new URL("https://sierra-language-academy.pages.dev");
+const siteUrl = Astro.site ?? new URL("https://sierra-language-academy.sierralanguageacademy2026.workers.dev");
 const canonicalUrl = new URL(path, siteUrl).toString();
 const absoluteOgImage = new URL(ogImage, siteUrl).toString();
 const logoUrl = new URL("/assets/sierra-logo.png", siteUrl).toString();
