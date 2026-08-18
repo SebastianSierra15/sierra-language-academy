@@ -36,12 +36,14 @@ The form is wired for Web3Forms through:
 
 ```bash
 PUBLIC_WEB3FORMS_ACCESS_KEY=
-PUBLIC_SITE_URL=https://sierra-language-academy.sierralanguageacademy2026.workers.dev
+PUBLIC_SITE_URL=https://sierralanguageacademy.com
 ```
 
 When the key is not configured, the form falls back to a prepared WhatsApp message.
 
 `PUBLIC_SITE_URL` should be changed to the final production domain before deployment so canonical URLs, sitemap, robots, Open Graph, Twitter cards, and JSON-LD use the real domain.
+
+Current production domain: `https://sierralanguageacademy.com`.
 
 ## Deployment
 

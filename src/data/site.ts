@@ -2,6 +2,24 @@ export const phoneDisplay = "+1 (403) 680-3870";
 export const whatsappNumber = "14036803870";
 export const leadEmail = "sebsirra13@gmail.com";
 
+export const siteImages = {
+  hero: {
+    src: "/assets/hero-online-language-coaching.webp",
+    alt: "Online language tutoring session with a student and instructor using a laptop",
+    title: "Online language tutoring session"
+  },
+  methodology: {
+    src: "/assets/methodology-personalized-lessons.webp",
+    alt: "Language tutor guiding a student through personalized lesson planning on a laptop",
+    title: "Personalized language lesson planning"
+  },
+  socialPreview: {
+    src: "/assets/og-sierra-language-academy.webp",
+    alt: "Students preparing for online language lessons and exam coaching in a library",
+    title: "Sierra Language Academy online coaching preview"
+  }
+};
+
 export function whatsappUrl(message: string) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }

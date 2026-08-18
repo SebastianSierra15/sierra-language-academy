@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { exams, languages, messages, methodology, programs, testimonials, whatsappUrl } from "../data/site";
+import { exams, languages, messages, methodology, programs, siteImages, testimonials, whatsappUrl } from "../data/site";
 import { pageSeo } from "../data/seo";
 ---
 
@@ -32,9 +32,14 @@ import { pageSeo } from "../data/seo";
       <div class="hero-card reveal">
         <div class="hero-image">
           <img
-            src="/assets/promo.jpeg"
-            alt="Sierra Language Academy online language learning promotion"
-            title="Sierra Language Academy online language learning promotion"
+            src={siteImages.hero.src}
+            alt={siteImages.hero.alt}
+            title={siteImages.hero.title}
+            width="1280"
+            height="960"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
           />
         </div>
         <div class="stat-card">
@@ -115,9 +120,13 @@ import { pageSeo } from "../data/seo";
     <div class="container split">
       <div class="portrait-panel reveal">
         <img
-          src="/assets/promo.jpeg"
-          alt="Online language learning environment with Sierra Language Academy branding"
-          title="Online language learning environment with Sierra Language Academy branding"
+          src={siteImages.methodology.src}
+          alt={siteImages.methodology.alt}
+          title={siteImages.methodology.title}
+          width="1200"
+          height="1200"
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div class="reveal">

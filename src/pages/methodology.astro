@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
-import { messages, methodology, whatsappUrl } from "../data/site";
+import { messages, methodology, siteImages, whatsappUrl } from "../data/site";
 import { pageSeo } from "../data/seo";
 ---
 
@@ -17,9 +17,13 @@ import { pageSeo } from "../data/seo";
     <div class="container split">
       <div class="portrait-panel reveal">
         <img
-          src="/assets/promo.jpeg"
-          alt="Sierra Language Academy study desk and online learning setup"
-          title="Sierra Language Academy study desk and online learning setup"
+          src={siteImages.methodology.src}
+          alt={siteImages.methodology.alt}
+          title={siteImages.methodology.title}
+          width="1200"
+          height="1200"
+          loading="eager"
+          decoding="async"
         />
       </div>
       <div class="method-list">

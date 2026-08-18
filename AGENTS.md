@@ -15,6 +15,8 @@ Core business facts:
 - Lead form: Web3Forms via `PUBLIC_WEB3FORMS_ACCESS_KEY`.
 - Lead email target for setup: `sebsirra13@gmail.com`.
 - Prices are shown in CAD: `$120`, `$440`, `$1100`.
+- Primary production domain: `https://sierralanguageacademy.com`.
+- Secondary connected domain: `https://www.sierralanguageacademy.com`.
 - Recommended future hosting: Cloudflare Pages.
 
 The form must work without a configured Web3Forms key by falling back to a prepared WhatsApp message. Do not add a database, login, dashboard, ecommerce checkout, or payment provider unless explicitly requested.
