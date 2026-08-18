@@ -11,10 +11,14 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "";
   data-lead-form
   data-has-key={accessKey ? "true" : "false"}
   data-whatsapp={whatsappUrl(messages.quote)}
+  data-success-message="Thank you. Your details were sent to Sierra Language Academy."
+  data-error-message="The form could not be sent right now. Please continue through WhatsApp for the fastest response."
 >
   <input type="hidden" name="access_key" value={accessKey} />
   <input type="hidden" name="subject" value="New Sierra Language Academy lead" />
   <input type="hidden" name="from_name" value="Sierra Language Academy Website" />
+  <input type="hidden" name="Lead destination" value={leadEmail} />
+  <input type="hidden" name="redirect" value="" data-redirect-input />
   <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display: none;" />
 
   <div>
@@ -60,7 +64,8 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || "";
     <textarea name="message" required placeholder="Tell us your language goal, current level, and preferred schedule."></textarea>
   </label>
 
-  <button class="btn btn-primary" type="submit" title="Send your details to Sierra Language Academy">Send Details</button>
+  <button class="btn btn-primary" type="submit" title="Send your details to Sierra Language Academy" data-submit-label="Send Details">Send Details</button>
+  <p class="form-status" data-form-status aria-live="polite" hidden></p>
   <p class="form-note">
     Prefer a faster response? Use WhatsApp for quotes, plan selection, and consultation scheduling.
   </p>

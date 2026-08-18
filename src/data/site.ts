@@ -1,12 +1,12 @@
 export const phoneDisplay = "+1 (403) 680-3870";
 export const whatsappNumber = "14036803870";
-export const leadEmail = "sebsirra13@gmail.com";
+export const leadEmail = "sierralanguageacademy2026@gmail.com";
 
 export const siteImages = {
   hero: {
     src: "/assets/hero-online-language-coaching.webp",
-    alt: "Online language tutoring session with a student and instructor using a laptop",
-    title: "Online language tutoring session"
+    alt: "Professor guiding an online language lesson with a student through a laptop video call",
+    title: "Online language coaching with a professor"
   },
   methodology: {
     src: "/assets/methodology-personalized-lessons.webp",

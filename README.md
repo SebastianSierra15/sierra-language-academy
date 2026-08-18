@@ -39,7 +39,7 @@ PUBLIC_WEB3FORMS_ACCESS_KEY=
 PUBLIC_SITE_URL=https://sierralanguageacademy.com
 ```
 
-When the key is not configured, the form falls back to a prepared WhatsApp message.
+Leads should be delivered to `sierralanguageacademy2026@gmail.com` through the configured Web3Forms access key. When the key is not configured, the form falls back to a prepared WhatsApp message.
 
 `PUBLIC_SITE_URL` should be changed to the final production domain before deployment so canonical URLs, sitemap, robots, Open Graph, Twitter cards, and JSON-LD use the real domain.
 

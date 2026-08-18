@@ -200,25 +200,58 @@ const jsonLd = JSON.stringify({
 
       revealItems.forEach((item) => observer.observe(item));
 
+      const showFormStatus = (form, message, type) => {
+        const status = form.querySelector("[data-form-status]");
+        if (!(status instanceof HTMLElement)) return;
+
+        status.textContent = message;
+        status.dataset.type = type;
+        status.hidden = false;
+      };
+
+      const buildWhatsAppLeadMessage = (form) => {
+        const data = new FormData(form);
+        return [
+          "Hello Sierra Language Academy, I would like to share my details for a quote or consultation.",
+          "",
+          `Name: ${data.get("name") || ""}`,
+          `Email: ${data.get("email") || ""}`,
+          `WhatsApp: ${data.get("phone") || ""}`,
+          `Interest: ${data.get("interest") || ""}`,
+          `Message: ${data.get("message") || ""}`
+        ].join("\n");
+      };
+
       document.querySelectorAll("[data-lead-form]").forEach((form) => {
+        if (new URLSearchParams(window.location.search).get("sent") === "1") {
+          showFormStatus(
+            form,
+            form.dataset.successMessage || "Thank you. Your details were sent.",
+            "success"
+          );
+        }
+
         form.addEventListener("submit", (event) => {
           const currentForm = event.currentTarget;
           if (!(currentForm instanceof HTMLFormElement)) return;
-          if (currentForm.dataset.hasKey === "true") return;
 
-          event.preventDefault();
-          const data = new FormData(currentForm);
-          const message = [
-            "Hello Sierra Language Academy, I would like to share my details for a quote or consultation.",
-            "",
-            `Name: ${data.get("name") || ""}`,
-            `Email: ${data.get("email") || ""}`,
-            `WhatsApp: ${data.get("phone") || ""}`,
-            `Interest: ${data.get("interest") || ""}`,
-            `Message: ${data.get("message") || ""}`
-          ].join("\n");
+          if (currentForm.dataset.hasKey !== "true") {
+            event.preventDefault();
+            const message = buildWhatsAppLeadMessage(currentForm);
+            window.location.href = `https://wa.me/14036803870?text=${encodeURIComponent(message)}`;
+            return;
+          }
 
-          window.location.href = `https://wa.me/14036803870?text=${encodeURIComponent(message)}`;
+          const redirectInput = currentForm.querySelector("[data-redirect-input]");
+          if (redirectInput instanceof HTMLInputElement) {
+            redirectInput.value = `${window.location.origin}/contact/?sent=1`;
+          }
+
+          const submitButton = currentForm.querySelector('button[type="submit"]');
+          if (submitButton instanceof HTMLButtonElement) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
+          }
         });
       });
     </script>
