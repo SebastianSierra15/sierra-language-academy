@@ -6,12 +6,8 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 
 <header class="site-header">
   <div class="container nav-inner">
-    <a class="brand" href="/" aria-label="Sierra Language Academy home" title="Sierra Language Academy home">
-      <img src="/assets/sierra-logo.png" alt="Sierra Language Academy logo" title="Sierra Language Academy logo" />
-      <span class="brand-text">
-        <span class="brand-name">Sierra</span>
-        <span class="brand-sub">Language Academy</span>
-      </span>
+    <a class="brand brand-full" href="/" aria-label="Sierra Language Academy home" title="Sierra Language Academy home">
+      <img class="brand-logo-full" src="/assets/sierra-logo-full.svg" alt="Sierra Language Academy logo" title="Sierra Language Academy logo" />
     </a>
 
     <nav class="nav-links" id="site-menu" aria-label="Primary navigation">
@@ -27,7 +23,10 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
     </a>
 
     <button class="menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false">
-      Menu
+      <span class="sr-only">Open menu</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
   </div>
 </header>

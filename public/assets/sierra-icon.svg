@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Sierra Language Academy Icon</title>
+  <desc id="desc">Gold Sierra monogram with a quill and speech bubble.</desc>
+  <defs>
+    <linearGradient id="sierraGold" x1="80" x2="420" y1="80" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F2CA50" />
+      <stop offset="0.48" stop-color="#D4AF37" />
+      <stop offset="1" stop-color="#A67C13" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M257 72c103 0 181 70 181 162 0 55-28 104-73 133l26 73-78-43c-18 5-37 8-56 8-103 0-181-70-181-162S154 72 257 72Z"
+    fill="none"
+    stroke="url(#sierraGold)"
+    stroke-width="15"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M284 76c-53 31-86 73-93 121-5 37 13 63 56 86 48 26 66 57 59 95-8 45-47 72-100 72-50 0-87-20-112-60"
+    fill="none"
+    stroke="url(#sierraGold)"
+    stroke-width="32"
+    stroke-linecap="round"
+  />
+  <path
+    d="M141 409 343 105"
+    fill="none"
+    stroke="#0E0E0E"
+    stroke-width="19"
+    stroke-linecap="round"
+  />
+  <path
+    d="M137 407 346 101"
+    fill="none"
+    stroke="url(#sierraGold)"
+    stroke-width="12"
+    stroke-linecap="round"
+  />
+  <path
+    d="M318 101c35-18 64-27 88-27-12 35-33 64-63 86l-34 17 9-76Z"
+    fill="url(#sierraGold)"
+    stroke="#0E0E0E"
+    stroke-width="5"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M348 93c-7 29-18 56-34 82"
+    fill="none"
+    stroke="#0E0E0E"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+  <path
+    d="M126 432c14-38 27-64 40-78l27 18c-9 17-31 37-67 60Z"
+    fill="url(#sierraGold)"
+    stroke="#0E0E0E"
+    stroke-width="5"
+    stroke-linejoin="round"
+  />
+  <circle cx="319" cy="261" r="13" fill="url(#sierraGold)" />
+  <circle cx="365" cy="261" r="13" fill="url(#sierraGold)" />
+  <circle cx="411" cy="261" r="13" fill="url(#sierraGold)" />
+</svg>
