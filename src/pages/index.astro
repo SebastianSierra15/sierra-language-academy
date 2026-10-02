@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { exams, languages, messages, methodology, programs, siteImages, testimonials, whatsappUrl } from "../data/site";
+import { exams, languages, messages, methodology, programs, testimonials, whatsappUrl } from "../data/site";
 import { pageSeo } from "../data/seo";
 ---
 
@@ -30,17 +30,22 @@ import { pageSeo } from "../data/seo";
       </div>
 
       <div class="hero-card reveal">
-        <div class="hero-image">
-          <img
-            src={siteImages.hero.src}
-            alt={siteImages.hero.alt}
-            title={siteImages.hero.title}
-            width="1280"
-            height="960"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
+        <div class="hero-visual" role="img" aria-label="Sierra Language Academy online coaching system with five languages and exam preparation tracks">
+          <div class="visual-ring visual-ring-large"></div>
+          <div class="visual-ring visual-ring-small"></div>
+          <div class="visual-mark">S</div>
+          <div class="visual-card visual-card-main">
+            <span>Personalized Plan</span>
+            <strong>Goal to fluency</strong>
+            <p>Level, schedule, practice, and feedback aligned from day one.</p>
+          </div>
+          <div class="language-pills" aria-hidden="true">
+            <span>EN</span>
+            <span>FR</span>
+            <span>ES</span>
+            <span>IT</span>
+            <span>PT</span>
+          </div>
         </div>
         <div class="stat-card">
           <strong>5 languages</strong>
@@ -117,35 +122,24 @@ import { pageSeo } from "../data/seo";
   </section>
 
   <section class="section">
-    <div class="container split">
-      <div class="portrait-panel reveal">
-        <img
-          src={siteImages.methodology.src}
-          alt={siteImages.methodology.alt}
-          title={siteImages.methodology.title}
-          width="1200"
-          height="1200"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-      <div class="reveal">
+    <div class="container method-content-wide">
+      <div class="section-head reveal">
         <p class="eyebrow">Methodology</p>
         <h2>Where language becomes a bridge, not a barrier.</h2>
-        <p class="lead" style="margin: 20px 0 34px;">
+        <p class="lead">
           The process is structured enough to produce progress and personal enough to adapt to the reason you are learning.
         </p>
-        <div class="method-list">
-          {methodology.slice(0, 3).map((item) => (
-            <article class="method-item">
-              <span class="method-step">{item.step}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+      </div>
+      <div class="method-list method-list-wide">
+        {methodology.slice(0, 3).map((item) => (
+          <article class="method-item reveal">
+            <span class="method-step">{item.step}</span>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>

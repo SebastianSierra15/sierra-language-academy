@@ -3,19 +3,9 @@ export const whatsappNumber = "14036803870";
 export const leadEmail = "sierralanguageacademy2026@gmail.com";
 
 export const siteImages = {
-  hero: {
-    src: "/assets/hero-online-language-coaching.webp",
-    alt: "Professor guiding an online language lesson with a student through a laptop video call",
-    title: "Online language coaching with a professor"
-  },
-  methodology: {
-    src: "/assets/methodology-personalized-lessons.webp",
-    alt: "Language tutor guiding a student through personalized lesson planning on a laptop",
-    title: "Personalized language lesson planning"
-  },
   socialPreview: {
-    src: "/assets/og-sierra-language-academy.webp",
-    alt: "Students preparing for online language lessons and exam coaching in a library",
+    src: "/assets/og-sierra-language-academy.png",
+    alt: "Sierra Language Academy gold and black brand preview for online language coaching",
     title: "Sierra Language Academy online coaching preview"
   }
 };
@@ -30,11 +20,11 @@ export const messages = {
   quote:
     "Hello Sierra Language Academy, I would like to request a quote for online language lessons. Please send me information about availability, plans, and next steps.",
   weeklyTrial:
-    "Hello Sierra Language Academy, I am interested in the Weekly Trial plan for $120 CAD. Please send me details about schedule options and how to get started.",
+    "Hello Sierra Language Academy, I am interested in the Weekly Trial plan for $135 CAD. Please send me details about schedule options and how to get started.",
   standard:
-    "Hello Sierra Language Academy, I am interested in the Standard Program for $440 CAD. Please send me details about schedule options and enrollment.",
+    "Hello Sierra Language Academy, I am interested in the Standard Program for $500 CAD. Please send me details about schedule options and enrollment.",
   intensive:
-    "Hello Sierra Language Academy, I am interested in the Intensive Program for $1100 CAD. Please send me details about the full program and availability.",
+    "Hello Sierra Language Academy, I am interested in the Intensive Program for $1400 CAD. Please send me details about the full program and availability.",
   exams:
     "Hello Sierra Language Academy, I am interested in exam preparation for CELPIP, IELTS, TEF, or TCF. Please help me choose the right preparation plan.",
   contact:
@@ -99,7 +89,7 @@ export const languages = [
 export const programs = [
   {
     name: "Weekly Trial",
-    price: "$120 CAD",
+    price: "$135 CAD",
     lessons: "4 lessons",
     duration: "1 week",
     description:
@@ -109,7 +99,7 @@ export const programs = [
   },
   {
     name: "Standard Program",
-    price: "$440 CAD",
+    price: "$500 CAD",
     lessons: "16 lessons",
     duration: "1 month",
     featured: true,
@@ -125,7 +115,7 @@ export const programs = [
   },
   {
     name: "Intensive Program",
-    price: "$1100 CAD",
+    price: "$1400 CAD",
     lessons: "48 lessons",
     duration: "3 months",
     description:

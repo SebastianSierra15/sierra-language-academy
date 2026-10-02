@@ -14,7 +14,7 @@ Core business facts:
 - WhatsApp URL number: `14036803870`.
 - Lead form: Web3Forms via `PUBLIC_WEB3FORMS_ACCESS_KEY`.
 - Lead email target for setup: `sierralanguageacademy2026@gmail.com`.
-- Prices are shown in CAD: `$120`, `$440`, `$1100`.
+- Prices are shown in CAD: `$135`, `$500`, `$1400`.
 - Primary production domain: `https://sierralanguageacademy.com`.
 - Secondary connected domain: `https://www.sierralanguageacademy.com`.
 - Recommended future hosting: Cloudflare Pages.

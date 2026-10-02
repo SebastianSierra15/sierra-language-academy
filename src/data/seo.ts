@@ -37,7 +37,7 @@ export const pageSeo = {
     ],
     path: "/",
     breadcrumbLabel: "Home",
-    ogImage: "/assets/og-sierra-language-academy.webp?page=home",
+    ogImage: "/assets/og-sierra-language-academy.png?page=home",
     ogImageAlt: defaultOgImageAlt,
     priority: "1.0",
     changefreq: "weekly"
@@ -55,7 +55,7 @@ export const pageSeo = {
     ],
     path: "/programs",
     breadcrumbLabel: "Programs",
-    ogImage: "/assets/og-sierra-language-academy.webp?page=programs",
+    ogImage: "/assets/og-sierra-language-academy.png?page=programs",
     ogImageAlt: "Sierra Language Academy program plans and online coaching",
     priority: "0.9",
     changefreq: "weekly"
@@ -74,7 +74,7 @@ export const pageSeo = {
     ],
     path: "/languages",
     breadcrumbLabel: "Languages",
-    ogImage: "/assets/og-sierra-language-academy.webp?page=languages",
+    ogImage: "/assets/og-sierra-language-academy.png?page=languages",
     ogImageAlt: "Online English French Spanish Italian and Portuguese lessons",
     priority: "0.9",
     changefreq: "weekly"
@@ -93,7 +93,7 @@ export const pageSeo = {
     ],
     path: "/exams",
     breadcrumbLabel: "Exams",
-    ogImage: "/assets/og-sierra-language-academy.webp?page=exams",
+    ogImage: "/assets/og-sierra-language-academy.png?page=exams",
     ogImageAlt: "CELPIP IELTS TEF and TCF exam preparation online",
     priority: "0.95",
     changefreq: "weekly"
@@ -110,7 +110,7 @@ export const pageSeo = {
     ],
     path: "/methodology",
     breadcrumbLabel: "Methodology",
-    ogImage: "/assets/og-sierra-language-academy.webp?page=methodology",
+    ogImage: "/assets/og-sierra-language-academy.png?page=methodology",
     ogImageAlt: "Sierra Language Academy personalized learning methodology",
     priority: "0.8",
     changefreq: "monthly"
@@ -127,7 +127,7 @@ export const pageSeo = {
     ],
     path: "/testimonials",
     breadcrumbLabel: "Testimonials",
-    ogImage: "/assets/og-sierra-language-academy.webp?page=testimonials",
+    ogImage: "/assets/og-sierra-language-academy.png?page=testimonials",
     ogImageAlt: "Sierra Language Academy student testimonials",
     priority: "0.7",
     changefreq: "monthly"
@@ -144,7 +144,7 @@ export const pageSeo = {
     ],
     path: "/faq",
     breadcrumbLabel: "FAQ",
-    ogImage: "/assets/og-sierra-language-academy.webp?page=faq",
+    ogImage: "/assets/og-sierra-language-academy.png?page=faq",
     ogImageAlt: "Frequently asked questions about Sierra Language Academy",
     priority: "0.75",
     changefreq: "monthly"
@@ -161,7 +161,7 @@ export const pageSeo = {
     ],
     path: "/contact",
     breadcrumbLabel: "Contact",
-    ogImage: "/assets/og-sierra-language-academy.webp?page=contact",
+    ogImage: "/assets/og-sierra-language-academy.png?page=contact",
     ogImageAlt: "Contact Sierra Language Academy by WhatsApp",
     priority: "0.9",
     changefreq: "weekly"
